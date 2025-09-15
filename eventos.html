@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evento - EventosU</title>
+    <!-- Enlace a Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a íconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Comienzo del encabezado -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <!-- Navbar de Bootstrap con responsive design -->
+            <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <h1 class="h3 mb-0">EventosU</h1>
+                    </a>
+                    <!-- Botón para menú colapsable en dispositivos móviles -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <!-- Lista de navegación con clases de Bootstrap -->
+                        <ul class="navbar-nav ms-auto w-100 justify-content-evenly">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="eventos.html"><i class="bi bi-plus-circle"></i> Crear Evento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="asistentes.html"><i class="bi bi-people"></i> Asistentes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header> 
+
+    <main class="container my-5">
+        <h2 class="mb-4 text-center">Crear Nuevo Evento</h2>
+        
+        <!-- Formulario de creación de eventos -->
+        <section class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light">
+                        <h3 class="h5 mb-0">Información del Evento</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-evento" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="titulo" class="form-label">Título del evento:</label>
+                                    <input type="text" class="form-control" id="titulo" name="titulo" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un título para el evento.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="tipo" class="form-label">Tipo de evento:</label>
+                                    <select class="form-select" id="tipo" name="tipo" required>
+                                        <option value="">Seleccionar tipo...</option>
+                                        <option value="conferencia">Conferencia</option>
+                                        <option value="taller">Taller</option>
+                                        <option value="curso">Curso</option>
+                                        <option value="congreso">Congreso</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona un tipo de evento.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="fecha" class="form-label">Fecha y hora:</label>
+                                    <input type="datetime-local" class="form-control" id="fecha" name="fecha" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una fecha y hora válida.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="sede" class="form-label">Sede:</label>
+                                    <input type="text" class="form-control" id="sede" name="sede" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la sede del evento.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="cupo" class="form-label">Cupo máximo:</label>
+                                    <input type="number" class="form-control" id="cupo" name="cupo" min="1" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un cupo válido (mínimo 1).
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="descripcion" class="form-label">Descripción:</label>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa una descripción para el evento.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-plus-circle me-2"></i>Crear Evento
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Mensaje de éxito -->
+                <div id="mensaje-exito" class="alert alert-success mt-4" role="alert" style="display: none;">
+                    <h4 class="alert-heading">¡Evento creado exitosamente!</h4>
+                    <p class="mb-0">El evento ha sido creado y guardado correctamente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Comienzo del pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">Unidad de Gestión de Eventos Universitarios (UGEU)</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2025 Todos los derechos reservados EventosU</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin del pie de página -->
+
+    <!-- Scripts de Bootstrap (requeridos para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Script para la gestión de eventos -->
+    <script src="js/eventos.js"></script>
+</body>
+</html>

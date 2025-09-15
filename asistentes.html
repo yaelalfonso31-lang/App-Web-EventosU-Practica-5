@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista responsive para adaptarse a diferentes dispositivos -->
+    <title>Gestión de Asistentes - EventosU</title>
+    
+    <!-- Enlace a Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">  
+    <!-- Enlace a íconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/estilos.css" rel="stylesheet"> <!-- Hoja de estilos personalizada para customizaciones específicas -->
+</head>
+
+<body>
+    <!-- Comienzo del encabezado -->
+    <header class="bg-primary text-white py-3">
+        <!-- Encabezado con fondo azul (bg-primary), texto blanco y padding vertical (py-3) -->
+        <div class="container">
+            <!-- Contenedor de Bootstrap para centrar y organizar el contenido -->
+            
+            <!-- Navbar de Bootstrap con responsive design -->
+            <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <!-- Barra de navegación que se expande en pantallas grandes (lg) -->
+                <div class="container-fluid">
+                    <!-- Contenedor fluido que ocupa todo el ancho disponible -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Marca/logo que enlaza a la página principal -->
+                        <h1 class="h3 mb-0">EventosU</h1>
+                        <!-- Nombre de la aplicación con estilo de heading 3 -->
+                    </a>
+                    
+                    <!-- Botón para menú colapsable en dispositivos móviles -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- Botón que solo se muestra en móviles, con icono de hamburguesa -->
+                        <span class="navbar-toggler-icon"></span>
+                        <!-- Icono de tres líneas (hamburguesa) -->
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <!-- Contenedor colapsable que se expande al hacer clic en el botón -->
+                        
+                        <!-- Lista de navegación con clases de Bootstrap -->
+                        <ul class="navbar-nav ms-auto w-100 justify-content-evenly">
+                            <!-- Lista de elementos de navegación alineados a la derecha (ms-auto) -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                                <!-- Enlace a Inicio con icono de casa -->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="eventos.html"><i class="bi bi-plus-circle"></i> Crear Evento</a>
+                                <!-- Enlace a Crear Evento con icono de más -->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="asistentes.html"><i class="bi bi-people"></i> Asistentes</a>
+                                <!-- Enlace activo (resaltado) a Asistentes con icono de personas -->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a>
+                                <!-- Enlace a Contacto con icono de sobre -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header> 
+    <!-- Fin del encabezado -->
+
+    <main class="container my-5">
+        <!-- Contenido principal con contenedor y margen vertical (my-5) -->
+        <h2 class="mb-4 text-center">Gestión de Asistentes</h2>
+        <!-- Título principal de la página centrado y con margen inferior -->
+        
+        <!-- Filtros y búsqueda -->
+        <section class="mb-4">
+            <!-- Sección de filtros con margen inferior -->
+            <div class="card shadow-sm">
+                <!-- Tarjeta con sombra suave -->
+                <div class="card-header bg-light">
+                    <!-- Encabezado de tarjeta con fondo claro -->
+                    <h3 class="h5 mb-0">Filtros y Búsqueda</h3>
+                    <!-- Título de sección con estilo de heading 5 -->
+                </div>
+                <div class="card-body">
+                    <!-- Cuerpo de la tarjeta -->
+                    <div class="row g-3">
+                        <!-- Fila con espacio (gap) entre columnas -->
+                        <div class="col-md-4">
+                            <!-- Columna que ocupa 4/12 en pantallas medianas y superiores -->
+                            <label for="evento" class="form-label">Seleccionar evento:</label>
+                            <!-- Etiqueta para el selector de eventos -->
+                            <select class="form-select" id="evento">
+                                <!-- Selector desplegable para elegir evento -->
+                                <option value="">-- Todos los eventos --</option>
+                                <!-- Opción por defecto -->
+                                <!-- Las opciones se cargarán dinámicamente con JavaScript -->
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="filtro-estado" class="form-label">Filtrar por estado:</label>
+                            <select class="form-select" id="filtro-estado">
+                                <!-- Selector para filtrar por estado de asistencia -->
+                                <option value="">Todos los estados</option>
+                                <option value="Confirmado">Confirmado</option>
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="buscar-asistente" class="form-label">Buscar asistente:</label>
+                            <div class="input-group">
+                                <!-- Grupo de entrada con botón integrado -->
+                                <input type="text" class="form-control" id="buscar-asistente" placeholder="Nombre o email...">
+                                <!-- Campo de búsqueda por texto -->
+                                <button class="btn btn-outline-secondary" type="button" id="btn-buscar">
+                                    <!-- Botón de búsqueda con estilo secundario -->
+                                    <i class="bi bi-search"></i>
+                                    <!-- Icono de lupa -->
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin de sección de filtros -->
+        
+        <!-- Tabla de asistentes -->
+        <section>
+            <div class="card shadow-sm">
+                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                    <!-- Encabezado de tarjeta con elementos flexibles alineados -->
+                    <h3 class="h5 mb-0">Lista de Asistentes</h3>
+                    <!-- Título de sección -->
+                    <div>
+                        <!-- Contenedor para contador y botón de exportación -->
+                        <span class="badge bg-primary me-2" id="contador-asistentes">0 asistentes</span>
+                        <!-- Badge con contador de asistentes (se actualizará con JS) -->
+                        <button class="btn btn-sm btn-success" id="btn-exportar-txt">
+                            <!-- Botón pequeño para exportar datos -->
+                            <i class="bi bi-download me-1"></i>Exportar a TXT
+                            <!-- Icono de descarga y texto -->
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Cuerpo de tarjeta sin padding para que la tabla ocupe todo el espacio -->
+                    <div class="table-responsive">
+                        <!-- Contenedor para hacer la tabla responsive en móviles -->
+                        <table class="table table-striped table-hover mb-0" id="tabla-asistentes">
+                            <!-- Tabla con filas rayadas, efecto hover y sin margen inferior -->
+                            <thead class="table-light">
+                                <!-- Encabezado de tabla con fondo claro -->
+                                <tr>
+                                    <!-- Fila de encabezados -->
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Evento</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col" class="text-center">Acciones</th>
+                                    <!-- Columna para botones de acciones, centrada -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Cuerpo de la tabla (se llenará dinámicamente con JavaScript) -->
+                                <tr id="sin-asistentes">
+                                    <!-- Fila que se muestra cuando no hay asistentes -->
+                                    <td colspan="7" class="text-center py-5 text-muted">
+                                        <!-- Celda que ocupa 7 columnas, con texto centrado y atenuado -->
+                                        <i class="bi bi-people display-4 d-block mb-2"></i>
+                                        <!-- Icono grande de personas -->
+                                        <p>No hay asistentes registrados. Seleccione un evento para ver sus asistentes.</p>
+                                        <!-- Mensaje informativo -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer bg-light d-flex justify-content-between align-items-center">
+                    <!-- Pie de tarjeta con información y controles de paginación -->
+                    <small class="text-muted" id="info-cupos"></small>
+                    <!-- Información sobre cupos (se actualizará con JS) -->
+                    <div class="btn-group">
+                        <!-- Grupo de botones para paginación -->
+                        <button class="btn btn-sm btn-outline-primary" id="btn-prev" disabled>Anterior</button>
+                        <!-- Botón para página anterior (inicialmente deshabilitado) -->
+                        <button class="btn btn-sm btn-outline-primary" id="btn-next" disabled>Siguiente</button>
+                        <!-- Botón para página siguiente (inicialmente deshabilitado) -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin de sección de tabla de asistentes -->
+    </main>
+    <!-- Fin del contenido principal -->
+
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-hidden="true">
+        <!-- Modal (ventana emergente) oculto inicialmente (fade) -->
+        <div class="modal-dialog">
+            <!-- Contenedor del modal -->
+            <div class="modal-content">
+                <!-- Contenido del modal -->
+                <div class="modal-header">
+                    <!-- Encabezado del modal -->
+                    <h5 class="modal-title" id="modalConfirmacionLabel">Confirmar acción</h5>
+                    <!-- Título del modal -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Botón para cerrar el modal -->
+                </div>
+                <div class="modal-body">
+                    <!-- Cuerpo del modal -->
+                    <p id="mensaje-confirmacion">¿Está seguro de que desea realizar esta acción?</p>
+                    <!-- Mensaje de confirmación (se modificará con JS según la acción) -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Pie del modal con botones de acción -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <!-- Botón para cancelar y cerrar el modal -->
+                    <button type="button" class="btn btn-primary" id="btn-confirmar-accion">Confirmar</button>
+                    <!-- Botón para confirmar la acción (la lógica se manejará con JS) -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin del modal de confirmación -->
+
+    <!-- Comienzo del pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <!-- Pie de página con fondo oscuro, texto blanco, padding vertical y margen superior -->
+        <div class="container">
+            <div class="row">
+                <!-- Fila para organizar el contenido del footer -->
+                <div class="col-md-6">
+                    <!-- Columna para información de copyright (mitad del ancho en pantallas medianas) -->
+                    <p class="mb-0">Unidad de Gestión de Eventos Universitarios (UGEU)</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <!-- Columna alineada a la derecha en pantallas medianas -->
+                    <p class="mb-0">© 2025 Todos los derechos reservados EventosU</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin del pie de página -->
+
+    <!-- Scripts de Bootstrap (requeridos para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <!-- Biblioteca Popper.js para gestionar posicionamiento de elementos como tooltips y popovers -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- JavaScript de Bootstrap para componentes interactivos (modales, dropdowns, etc.) -->
+    
+    <!-- Script para la gestión de asistentes -->
+    <script src="js/asistentes.js"></script>
+    <!-- Lógica específica para gestionar asistentes (CRUD, filtrado, etc.) -->
+    <script src="js/inscripciones.js"></script>
+    <!-- Funcionalidades relacionadas con inscripciones a eventos -->
+    <script src="js/eventos.js"></script>
+    <!-- Gestión de eventos (carga, selección, etc.) -->
+   
+</body>
+<!-- Fin del cuerpo del documento -->
+</html>
+<!-- Fin del documento HTML -->

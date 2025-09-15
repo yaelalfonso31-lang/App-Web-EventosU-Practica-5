@@ -1,0 +1,428 @@
+/* Estilos generales */
+            :root {
+            /* Definición de variables CSS personalizadas para mantener consistencia */
+            --primario: #725CAD;   /* Color principal púrpura/morado */
+            --secundario: #0B1D51; /* Color secundario azul oscuro */
+            --blanco: #ffffff;     /* Color blanco */
+            --oscuro: #000000;     /* Color negro */
+            --gris: #696666;       /* Color gris medio */
+            --gris-claro: #f8f9fa; /* Color gris claro para fondos */
+            }
+
+            body {
+                /* Estilos generales del cuerpo del documento */
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                /* Fuente amigable y legible */
+                background-color: var(--gris-claro);
+                /* Fondo gris claro usando variable CSS */
+                color: #333;
+                /* Color de texto principal casi negro */
+                line-height: 1.6;
+                /* Espaciado entre líneas para mejor legibilidad */
+                background-image: linear-gradient(to top, #DFE9F3, var(--blanco) 100%);
+                /* Degradado suave de azul claro a blanco de abajo hacia arriba */
+            }
+
+            /* Encabezado hero - Sección principal de cabecera con imagen */
+            .header-hero {
+                position: relative; /* Posicionamiento relativo para elementos hijos absolutos */
+                height: 450px;     /* Altura fija para la sección hero */
+                overflow: hidden;  /* Oculta cualquier contenido que se desborde */
+            }
+
+            .header-img {
+                width: 100%;      /* Imagen ocupa todo el ancho disponible */
+                height: 100%;     /* Imagen ocupa toda la altura del contenedor */
+                object-fit: cover; /* Recorta la imagen para cubrir el espacio sin distorsionar */
+                position: absolute; /* Posicionamiento absoluto respecto al contenedor relativo */
+                top: 0;
+                left: 0;
+                z-index: 1;       /* Coloca la imagen detrás de la superposición (overlay) */
+            }
+
+            .header-overlay {
+                position: absolute; /* Superposición posicionada sobre la imagen */
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* Degradado semitransparente de negro a púrpura de izquierda a derecha */
+                background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(116, 69, 255, 0.7));
+                z-index: 2;       /* Se coloca sobre la imagen pero bajo el contenido */
+                display: flex;
+                align-items: center;     /* Centrado vertical */
+                justify-content: center; /* Centrado horizontal */
+            }
+
+            .header-content {
+                position: relative; /* Posicionamiento relativo para el contenido */
+                z-index: 3;        /* Se coloca sobre la superposición y la imagen */
+                text-align: center; /* Texto centrado */
+                color: var(--blanco); /* Texto blanco */
+                padding: 2rem;     /* Espaciado interno */
+            }
+
+            .header-title {
+                font-size: 3.8rem;   /* Tamaño de fuente grande para título principal */
+                font-weight: bold;   /* Negrita */
+                margin-bottom: 1rem; /* Espaciado inferior */
+                /* Sombra de texto con desplazamiento para efecto de relieve */
+                text-shadow: 1px 1px 0 rgb(55, 33, 99), -1px -1px 0 rgb(0, 0, 0);
+            }
+
+            .header-title span {
+                font-size: 2.5rem;    /* Tamaño menor para parte del título */
+                display: block;       /* Hace que sea un elemento de bloque */
+                margin-top: 0.5rem;   /* Espaciado superior */
+                /* Sombra blanca para contraste con fondo oscuro */
+                text-shadow: 1px 1px 0 white, -1px -1px 0 white;
+                color: var(--secundario); /* Color azul oscuro */
+            }
+
+            .header-subtitle {
+                font-size: 2.5rem;    /* Tamaño grande para subtítulo */
+                margin-bottom: 2rem;  /* Espaciado inferior */
+                /* Sombra de texto con múltiples colores para efecto destacado */
+                text-shadow: 1px 1px 0 rgb(55, 33, 99), -1px -1px 0 white;
+            }
+
+            .header-location {
+                display: flex;
+                align-items: center;     /* Centrado vertical de ícono y texto */
+                justify-content: center; /* Centrado horizontal */
+                font-size: 3rem;         /* Tamaño grande de fuente */
+                margin-bottom: 2rem;     /* Espaciado inferior */
+            }
+
+            /* Barra de navegación mejorada */
+            .custom-navbar {
+                background: var(--secundario); /* Fondo azul oscuro */
+                padding: 1rem 0;               /* Espaciado vertical */
+            }
+
+            .navbar-nav {
+                width: 100%;                   /* Ocupa todo el ancho disponible */
+                display: flex;
+                justify-content: center;       /* Centra horizontalmente los elementos */
+                align-items: center;           /* Centra verticalmente los elementos */
+            }
+
+            .navbar-nav .nav-link {
+                color: var(--blanco) !important; /* Texto blanco (important para sobrescribir Bootstrap) */
+                font-weight: 600;              /* Negrita semi */
+                font-size: 1.2rem;             /* Tamaño de fuente aumentado */
+                padding: 0.8rem 1.5rem !important; /* Espaciado interno (important para sobrescribir) */
+                margin: 0 0.5rem;              /* Margen horizontal entre enlaces */
+                border-radius: 25px;           /* Bordes redondeados tipo píldora */
+                transition: all 0.3s ease;     /* Transición suave para efectos hover */
+                text-align: center;
+                display: flex;
+                align-items: center;           /* Centra verticalmente ícono y texto */
+                justify-content: center;       /* Centra horizontalmente ícono y texto */
+            }
+
+            .navbar-nav .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar mouse */
+                transform: translateY(-2px);   /* Efecto de levitación suave */
+            }
+
+            .navbar-nav .nav-link.active {
+                background-color: var(--blanco); /* Fondo blanco para enlace activo */
+                color: var(--secundario) !important; /* Texto azul oscuro para enlace activo */
+            }
+
+            .navbar-toggler {
+                border: none;          /* Elimina borde por defecto */
+                font-size: 1.5rem;     /* Tamaño aumentado para el botón hamburguesa */
+            }
+
+            /* Logo */
+            .logo {
+                height: 60px;          /* Altura fija para el logo */
+                width: auto;           /* Ancho automático para mantener proporciones */
+                border-radius: 8px;    /* Esquinas ligeramente redondeadas */
+                transition: transform 0.3s ease; /* Transición suave para efecto hover */
+            }
+
+            .logo:hover {
+                transform: scale(1.1); /* Agrandamiento suave al pasar el mouse */
+            }
+
+            /* Tarjetas de eventos */
+            .card {
+                border: none;          /* Elimina borde por defecto de Bootstrap */
+                border-radius: 15px;   /* Bordes muy redondeados */
+                overflow: hidden;      /* Oculta contenido que sobresalga de los bordes redondeados */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+                background: linear-gradient(to bottom, #ffffff 0%, #f1f1f1 100%); /* Degradado suave */
+            }
+
+            .card:hover {
+                transform: translateY(-5px);    /* Efecto de levitación al pasar mouse */
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada al hover */
+            }
+
+            .card-header {
+                background: var(--primario) !important; /* Fondo morado para encabezado de tarjeta */
+                color: white;           /* Texto blanco */
+                font-weight: 600;       /* Negrita semi */
+                border-bottom: none;    /* Elimina borde inferior por defecto */
+            }
+
+            .card-title {
+                color: var(--secundario); /* Texto azul oscuro para títulos */
+                font-weight: 700;        /* Negrita */
+            }
+
+            .card-text {
+                color: #555;            /* Texto gris oscuro para contenido */
+            }
+
+            /* Botones */
+            .btn-primary {
+                background-color: var(--secundario); /* Fondo azul oscuro */
+                border-color: var(--secundario);     /* Borde azul oscuro */
+                border-radius: 20px;                 /* Bordes redondeados tipo píldora */
+                font-weight: 600;                    /* Negrita semi */
+                transition: all 0.3s ease;           /* Transición suave para efectos */
+            }
+
+            .btn-primary:hover {
+                background-color: var(--primario);   /* Fondo morado al pasar mouse */
+                border-color: var(--primario);       /* Borde morado al pasar mouse */
+                transform: scale(1.05);              /* Ligero agrandamiento al hover */
+            }
+
+            .btn-outline-primary {
+                color: var(--secundario);            /* Texto azul oscuro */
+                border-color: var(--secundario);     /* Borde azul oscuro */
+                border-radius: 20px;                 /* Bordes redondeados tipo píldora */
+                font-weight: 600;                    /* Negrita semi */
+            }
+
+            .btn-outline-primary:hover {
+                background-color: var(--secundario); /* Fondo azul oscuro al hover */
+                color: white;                        /* Texto blanco al hover */
+            }
+
+            .btn-success {
+                background-color: var(--primario);   /* Fondo morado (no verde como es usual) */
+                border-color: var(--primario);       /* Borde morado */
+                border-radius: 20px;                 /* Bordes redondeados tipo píldora */
+                font-weight: 600;                    /* Negrita semi */
+            }
+
+            .btn-success:hover {
+                background-color: #8CCDEB;           /* Fondo azul claro al hover */
+                border-color: #8CCDEB;               /* Borde azul claro al hover */
+                color: var(--secundario);            /* Texto azul oscuro al hover */
+            }
+
+            .btn-secondary {
+                background-color: #8CCDEB;           /* Fondo azul claro */
+                border-color: #8CCDEB;               /* Borde azul claro */
+                color: var(--secundario);            /* Texto azul oscuro */
+                border-radius: 20px;                 /* Bordes redondeados tipo píldora */
+                font-weight: 600;                    /* Negrita semi */
+            }
+
+            .btn-secondary:hover {
+                background-color: var(--secundario); /* Fondo azul oscuro al hover */
+                border-color: var(--secundario);     /* Borde azul oscuro al hover */
+                color: white;                        /* Texto blanco al hover */
+            }
+
+            /* Formularios */
+            .form-control, .form-select {
+                border-radius: 10px;                 /* Bordes redondeados */
+                border: 2px solid #ddd;              /* Borde gris claro */
+                padding: 10px 15px;                  /* Espaciado interno amplio */
+                transition: all 0.3s ease;           /* Transición suave para efectos */
+            }
+
+            .form-control:focus, .form-select:focus {
+                border-color: var(--primario);       /* Borde morado al enfocar */
+                box-shadow: 0 0 0 0.25rem rgba(114, 92, 173, 0.25); /* Sombra morada suave al enfocar */
+            }
+
+            .form-label {
+                font-weight: 600;                    /* Negrita semi para etiquetas */
+                color: var(--secundario);            /* Color azul oscuro para etiquetas */
+            }
+
+            /* Textarea */
+            textarea.form-control {
+                min-height: 120px;   /* Altura mínima para áreas de texto */
+                resize: vertical;    /* Permite redimensionar solo verticalmente */
+            }
+
+            /* Tablas */
+            .table {
+                border-radius: 5px;  /* Bordes redondeados para la tabla */
+                overflow: hidden;    /* Oculta esquinas para que los bordes redondeados se vean bien */
+            }
+
+            .table th {
+                background: var(--primario); /* Fondo morado para encabezados de tabla */
+                color: white;                /* Texto blanco para encabezados */
+                font-weight: 600;            /* Negrita semi */
+                border: none;                /* Elimina bordes por defecto */
+            }
+
+            .table-hover tbody tr:hover {
+                background-color: rgba(140, 205, 235, 0.2); /* Fondo azul claro muy transparente al pasar mouse */
+            }
+
+            /* Badges (etiquetas/insignias) */
+            .badge {
+                border-radius: 15px;     /* Bordes muy redondeados tipo píldora */
+                padding: 8px 12px;       /* Espaciado interno amplio */
+                font-weight: 600;        /* Negrita semi */
+            }
+
+            .bg-success {
+                background-color: var(--primario) !important; /* Fondo morado para éxito */
+            }
+
+            .bg-warning {
+                background-color: #FFE3A9 !important;    /* Fondo amarillo claro para advertencia */
+                color: var(--secundario) !important;     /* Texto azul oscuro para contraste */
+            }
+
+            .bg-primary {
+                background-color: var(--secundario) !important; /* Fondo azul oscuro para primario */
+            }
+
+            /* Modal (ventanas emergentes) */
+            .modal-content {
+                border-radius: 15px;     /* Bordes muy redondeados */
+                border: none;            /* Elimina borde por defecto */
+            }
+
+            .modal-header {
+                /* Degradado diagonal de azul oscuro a morado */
+                background: linear-gradient(135deg, var(--secundario) 0%, var(--primario) 100%);
+                color: white;            /* Texto blanco */
+                border-bottom: none;     /* Elimina borde inferior por defecto */
+            }
+
+            .modal-title {
+                font-weight: 700;        /* Negrita para título de modal */
+            }
+
+            .btn-close {
+                filter: invert(1);       /* Invierte colores del icono de cerrar (para verse blanco) */
+            }
+
+            /* Alertas */
+            .alert {
+                border-radius: 15px;     /* Bordes muy redondeados */
+                border: none;            /* Elimina borde por defecto */
+            }
+
+            .alert-success {
+                background-color: #8CCDEB;           /* Fondo azul claro para alertas de éxito */
+                color: var(--secundario);            /* Texto azul oscuro */
+                border-left: 5px solid var(--secundario); /* Borde izquierdo azul oscuro */
+            }
+
+            .alert-heading {
+                color: var(--secundario);    /* Texto azul oscuro para títulos de alerta */
+                font-weight: 700;            /* Negrita */
+            }
+
+            /* Footer */
+            footer {
+                /* Degradado diagonal de azul oscuro a morado */
+                background: linear-gradient(135deg, var(--secundario) 0%, var(--primario) 100%);
+                color: white;            /* Texto blanco */
+                padding: 30px 0;         /* Espaciado vertical */
+                margin-top: 50px;        /* Margen superior para separación del contenido */
+            }
+
+            /* Efectos especiales */
+            .shadow-sm {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* Sombra suave */
+            }
+
+            .sombra {
+                box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54); /* Sombra más pronunciada */
+                background-color: var(--blanco); /* Fondo blanco */
+                padding: 2rem;           /* Espaciado interno amplio */
+                border-radius: 5px;      /* Bordes ligeramente redondeados */
+            }
+
+            /* Títulos */
+            h2 {
+                font-size: 2.8rem;       /* Tamaño grande para títulos de sección */
+                text-align: center;      /* Centrado */
+                color: var(--secundario); /* Color azul oscuro */
+                margin-bottom: 2rem;     /* Espaciado inferior amplio */
+            }
+
+            /* Estilos para íconos */
+            .bi {
+                margin-right: 5px;       /* Espacio a la derecha de los íconos */
+            }
+
+            /* Enlaces */
+            a {
+                color: var(--primario);  /* Color morado para enlaces */
+                text-decoration: none;   /* Elimina subrayado por defecto */
+                transition: color 0.3s ease; /* Transición suave para cambio de color */
+            }
+
+            a:hover {
+                color: var(--secundario);    /* Color azul oscuro al pasar mouse */
+                text-decoration: underline;  /* Subrayado al pasar mouse */
+            }
+
+            /* Efectos de hover para elementos interactivos */
+            .card-hover-effect {
+                transition: all 0.3s ease;   /* Transición suave para todos los cambios */
+            }
+
+            .card-hover-effect:hover {
+                transform: translateY(-3px);   /* Efecto de levitación suave */
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra al pasar mouse */
+            }
+
+            /* Responsividad - Estilos para dispositivos móviles (hasta 768px) */
+            @media (max-width: 768px) {
+                .header-title {
+                    font-size: 2.8rem;   /* Reduce tamaño de título en móviles */
+                }
+                
+                .header-subtitle {
+                    font-size: 1.8rem;   /* Reduce tamaño de subtítulo en móviles */
+                }
+                
+                .header-location {
+                    font-size: 1.4rem;   /* Reduce tamaño de ubicación en móviles */
+                }
+                
+                .navbar-nav .nav-link {
+                    margin: 0.3rem 0;    /* Cambia margen horizontal a vertical */
+                    width: 100%;         /* Ocupa todo el ancho en móviles */
+                }
+                
+                .card {
+                    margin-bottom: 20px; /* Añade margen inferior a tarjetas en móviles */
+                }
+                
+                .btn {
+                    width: 100%;         /* Botones ocupan todo el ancho en móviles */
+                    margin-bottom: 10px; /* Margen inferior entre botones */
+                }
+            }
+
+            /* Responsividad - Estilos para tablets y escritorio (768px en adelante) */
+            @media (min-width: 768px) {
+                .header-title {
+                    font-size: 4.5rem;   /* Tamaño aumentado para título en pantallas grandes */
+                }
+                
+                .header-subtitle {
+                    font-size: 3rem;     /* Tamaño aumentado para subtítulo en pantallas grandes */
+                }
+            }

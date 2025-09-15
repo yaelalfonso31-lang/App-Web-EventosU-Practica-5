@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>PaginaPrincipal - EventosU</title>
+    <!-- Enlace a Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a íconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Comienzo del encabezado -->
+    <header class="bg-primary text-white py-3">
+        <!-- Encabezado con imagen y degradado al estilo Freelancer -->
+        <div class="header-hero">
+            <img src="img/eventos.jpg" alt="Imagen de EventosU" class="header-img">
+            <div class="header-overlay">
+                <div class="header-content">
+                    <h1 class="header-title">EventosU <span>Gestión Universitaria</span></h1>
+                    <h2 class="header-subtitle">Organización y Desarrollo de Eventos Académicos</h2>
+                    <p class="header-location d-flex justify-content-around align-items-center">
+                        <i class="bi bi-chat-left-heart-fill"></i>
+                        <i class="bi bi-bicycle"></i>
+                        <i class="bi bi-controller"></i>
+                        <img src="img/buap.jpg" alt="Imagen de EventosU" width="150" height="150">
+                        <i class="bi bi-balloon-fill"></i>
+                        <i class="bi bi-brush-fill"></i>
+                        <i class="bi bi-camera-reels-fill"></i>
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Navbar de Bootstrap con responsive design -->
+            <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+                <div class="container-fluid">
+                    <!-- Botón menú responsive -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menú de navegación -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto w-100 justify-content-evenly">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="eventos.html"><i class="bi bi-plus-circle"></i> Crear Evento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="asistentes.html"><i class="bi bi-people"></i> Asistentes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header> 
+    <!-- Fin del encabezado -->
+
+    <!-- Comienzo del contenido principal -->
+    <main class="container my-5">
+        <section>
+            <h2 class="mb-4">Eventos Disponibles</h2> 
+            <!-- Subtítulo de la sección para la busqueda de eventos disponibles -->
+            
+            <!-- Sección para la barra de búsqueda de eventos disponibles -->
+            
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <form class="d-flex" id="form-busqueda">
+                        <input id="input-busqueda" class="form-control me-2" type="search" placeholder="Buscar eventos..." aria-label="Buscar">
+                        <button class="btn btn-outline-primary me-2" type="submit">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+                        <button class="btn btn-outline-secondary" type="button" id="btn-limpiar">
+                            <i class="bi bi-eraser"></i> Limpiar
+                        </button>
+                    </form>
+
+                    </div>
+                </div>
+            
+            <!-- Sección para los filtros de búsqueda -->
+            <div class="card mb-4">
+                <div class="card-header bg-light">
+                    <h3 class="h5 mb-0">Filtros</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Uso de un formulario para los filtros de búsqueda con clases de formulario de Bootstrap -->
+                    <form class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Tipo de evento:</label> 
+                            <select class="form-select"> 
+                                <!-- Lista desplegable con los tipos de eventos  -->
+                                <option value="">Todos</option>
+                                <option value="conferencia">Conferencia</option>
+                                <option value="taller">Taller</option>
+                                <option value="curso">Curso</option>
+                                <option value="congreso">Congreso</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Fecha:</label> 
+                            <!-- Input de tipo fecha para seleccionar la fecha del evento -->
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <!-- Un botón para enviar el formulario de filtros de tipo submit -->
+                            <button type="submit" class="btn btn-primary">Aplicar Filtros</button> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sección para mostrar los eventos disponibles con sistema de grid de Bootstrap -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Evento 1: Card de Bootstrap -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm" id="evento1">
+                        <div class="card-body text-center">
+                        <h3 class="card-title h5">Taller de Ciberseguridad</h3>
+                        <img src="img/taller1.jpg" alt="Taller de Ciberseguridad" class="img-fluid rounded mb-3 d-block mx-auto" style="width:350px; height:300px; object-fit:cover;">
+                        <p class="card-text"><strong>Fecha:</strong> 18/09/2025</p>
+                        <p class="card-text"><strong>Sede:</strong> Aula Magna FCC</p>
+                        <p class="card-text"><strong>Tipo:</strong> Taller</p>
+                        <p class="card-text"><strong>Cupos disponibles:</strong> <span class="cupo">15</span></p>
+                        <button class="btn btn-primary btn-inscribirse" data-bs-toggle="modal" data-bs-target="#modalInscripcion" data-evento="evento1">
+                            <i class="bi bi-pencil-fill"></i> Inscribirme
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 2: Card de Bootstrap -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm " id="evento2">
+                        <div class="card-body text-center">
+                            <h3 class="card-title h5">Conferencia de Inteligencia Artificial</h3>
+                            <img src="img/taller2.jpg" alt="Taller de Ciberseguridad" class="img-fluid rounded mb-3 d-block mx-auto" style="width:350px; height:300px; object-fit:cover;">
+                            <p class="card-text"><strong>Fecha:</strong> 20/09/2025</p>
+                            <p class="card-text"><strong>Sede:</strong> Auditorio Principal</p>
+                            <p class="card-text"><strong>Tipo:</strong> Conferencia</p>
+                            <p class="card-text"><strong>Cupos disponibles:</strong> <span class="cupo">0</span></p>
+                            <!-- Botón deshabilitado con estilo secundario de Bootstrap -->
+                            <button class="btn btn-secondary" disabled><i class="bi bi-x-octagon-fill"></i> Cupos Completos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evento 3: Card de Bootstrap -->
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center" id="evento3">
+                            <h3 class="card-title h5">Curso de Desarrollo Web</h3>
+                            <img src="img/taller3.jpg" alt="Taller de Ciberseguridad" class="img-fluid rounded mb-3 d-block mx-auto" style="width:350px; height:300px; object-fit:cover;">
+                            <p class="card-text"><strong>Fecha:</strong> 25/09/2025</p>
+                            <p class="card-text"><strong>Sede:</strong> Laboratorio de Computación 3</p>
+                            <p class="card-text"><strong>Tipo:</strong> Curso</p>
+                            <p class="card-text"><strong>Cupos disponibles:</strong> <span class="cupo">8</span></p>
+                            <!-- Botón con estilo primario de Bootstrap -->
+                            <button class="btn btn-primary btn-inscribirse" data-bs-toggle="modal" data-bs-target="#modalInscripcion" data-evento="evento3">
+                            <i class="bi bi-pencil-fill"></i> Inscribirme
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal de Bootstrap para inscripción (inicialmente oculto) -->
+        <div class="modal fade" id="modalInscripcion" tabindex="-1" aria-labelledby="modalInscripcionLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalInscripcionLabel">Inscripción a Evento</h5>
+                        <!-- Botón para cerrar el modal -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulario para la inscripción a un evento con clases de formulario de Bootstrap -->
+                            <form id="formInscripcion" data-evento="">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre:</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono:</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Confirmar Inscripción</button> 
+                                </div>
+                            </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+    <!-- Fin del contenido principal -->
+
+    <!-- Comienzo del pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">Unidad de Gestión de Eventos Universitarios (UGEU)</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2025 Todos los derechos reservados EventosU</p>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <!-- Fin del pie de página -->
+
+    <!-- Scripts de Bootstrap (requeridos para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Script para la gestión de asistentes -->
+    <script src="js/asistentes.js"></script>
+    <script src="js/inscripciones.js"></script>
+    <script src="js/eventos.js"></script>
+</body>
+</html>

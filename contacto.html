@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>Contacto - EventosU</title>
+    <!-- Enlace a Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a íconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Comienzo del encabezado -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <!-- Navbar de Bootstrap con responsive design -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <h1 class="h3 mb-0">EventosU</h1>
+                    </a>
+                    <!-- Botón para menú colapsable en dispositivos móviles -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <!-- Lista de navegación con clases de Bootstrap -->
+                        <ul class="navbar-nav ms-auto w-100 justify-content-evenly">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="eventos.html"><i class="bi bi-plus-circle"></i> Crear Evento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="asistentes.html"><i class="bi bi-people"></i> Asistentes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header> 
+    <!-- Fin del encabezado -->
+
+    <main class="container my-5">
+        <div class="row">
+            <!-- Sección para el formulario de contacto -->
+            <section class="col-md-8">
+                <h2 class="mb-4">Contacto</h2>
+                <p class="lead">¿Tienes preguntas o sugerencias? Completa el formulario y nos pondremos en contacto contigo.</p>
+                
+                <!-- Comienzo del formulario de contacto con clases de formulario de Bootstrap -->
+                <form id="formulario-contacto" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <div class="invalid-feedback">
+                            Por favor ingresa tu nombre.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="invalid-feedback">
+                            Por favor ingresa un correo electrónico válido.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                        <div class="invalid-feedback">
+                            Por favor ingresa tu mensaje.
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </form>
+                
+                <!-- Mensaje de éxito al enviar el formulario con alerta de Bootstrap -->
+                <div id="mensaje-exito" class="alert alert-success mt-4" role="alert" style="display: none;">
+                    <h4 class="alert-heading">¡Gracias por contactarnos!</h4>
+                    <p class="mb-0">Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.</p>
+                </div>
+            </section>
+            
+            <!-- Sección para la información de contacto directa -->
+            <section class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <h3 class="h5 mb-0">Información de contacto</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">También puedes contactarnos directamente:</p>
+                        <address>
+                            <p class="mb-2"><strong>Email:</strong> <a href="mailto:info@eventosu.edu">info@eventosu.edu</a></p>
+                            <p class="mb-2"><strong>Teléfono:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                            <p class="mb-0"><strong>Dirección:</strong> Universidad Central, Edificio Principal, Oficina 304</p>
+                        </address>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta adicional con horario de atención -->
+                <div class="card mt-4">
+                    <div class="card-header bg-light">
+                        <h3 class="h5 mb-0">Horario de atención</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-1"><strong>Lunes a Viernes:</strong> 8:00 am - 6:00 pm</p>
+                        <p class="mb-1"><strong>Sábados:</strong> 9:00 am - 1:00 pm</p>
+                        <p class="mb-0"><strong>Domingos:</strong> Cerrado</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+   <!-- Comienzo del pie de página -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">Unidad de Gestión de Eventos Universitarios (UGEU)</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">© 2025 Todos los derechos reservados EventosU</p>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <!-- Fin del pie de página -->
+
+    <!-- Scripts de Bootstrap (requeridos para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Script para validación del formulario -->
+    <script>
+        // Validación del formulario con Bootstrap
+        (function () {
+            'use strict'
+            
+            // Obtener el formulario
+            var form = document.getElementById('formulario-contacto');
+            var mensajeExito = document.getElementById('mensaje-exito');
+            
+            // Escuchar el evento submit
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    // Mostrar mensaje de éxito
+                    mensajeExito.style.display = 'block';
+                    // Resetear formulario
+                    form.reset();
+                    form.classList.remove('was-validated');
+                }
+                
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+</body>
+</html>
