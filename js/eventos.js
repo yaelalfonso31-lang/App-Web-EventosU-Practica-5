@@ -192,8 +192,6 @@ function getEventosFromStorageObj() {
     return JSON.parse(localStorage.getItem('eventos') || '{}');
 }
 
-
-
 //  CONSTRUCCIÓN DE LISTA DE EVENTOS COMBINADA
 // Combina los eventos base con los eventos guardados en localStorage.
 // Los eventos de localStorage con el mismo ID que un evento base sobreescriben al base.

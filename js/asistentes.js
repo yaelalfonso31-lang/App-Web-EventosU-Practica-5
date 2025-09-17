@@ -69,12 +69,20 @@ function inicializarDatos() {
 //Esta es una función "ayudante". Como en los datos solo guardo IDs como 'evento1',
 //devuelve un nombre más descriptivo para mostrar en la interfaz.
 function obtenerNombreEvento(eventoId) {
-    // Intento darle un nombre "bonito" a cada evento según su ID.
+    // Leer los eventos desde localStorage
+    const eventosData = JSON.parse(localStorage.getItem('eventos') || '{}');
+
+    // Si existe el evento en localStorage y tiene título, usarlo
+    if (eventosData[eventoId] && eventosData[eventoId].titulo) {
+        return eventosData[eventoId].titulo;
+    }
+
+    // Mapear los eventos base conocidos
     if (eventoId === 'evento1') return 'Taller de Ciberseguridad';
     if (eventoId === 'evento2') return 'Conferencia de Inteligencia Artificial';
     if (eventoId === 'evento3') return 'Curso de Desarrollo Web';
-    
-    // Si no reconozco el ID, devuelvo un nombre genérico.
+
+    // Si no encuentro nada, devuelvo el ID como fallback
     return `Evento ${eventoId}`;
 }
 
